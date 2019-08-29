@@ -6,14 +6,14 @@ import axios from 'axios';
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-
-import '@/tool/interceptors'
+import gComponent from '@/components/global'
+import '@/utils/interceptors'
 
 Vue.config.productionTip = false;
 
 Vue.use(ElementUI)
-
-new Vue({
+Vue.use(gComponent)
+export default new Vue({
   router,
   store,
   render: h => h(App)

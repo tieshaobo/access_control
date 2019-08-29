@@ -1,30 +1,72 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <el-container>
+      <el-header>
+        <v-header></v-header>
+      </el-header>
+      <router-view />
+    </el-container>
+    <!-- <div id="nav">
+      <v-header></v-header>
     </div>
-    <router-view />
+    <div class="content">
+      <router-view />
+    </div>   -->
   </div>
 </template>
-
+<script>
+import vHeader from '@/views/layout/header'
+export default {
+  name:'App',
+  components:{
+    vHeader
+  },
+}
+</script>
 <style lang="scss">
 @import "./style/reset.css";
+html,body {
+  height:100%;
+  width:100%;
+  min-width:1200px;
+}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  height:100%;
+  overflow:hidden;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-shrink: 1;
+  /deep/ .el-container .el-header{
+    padding:0;
   }
 }
+.content {
+  flex-grow:1;
+  overflow:hidden;
+  // overflow:auto;
+  // height:100%;
+  // margin-top:60px;
+}
+#nav {
+  // position: fixed;
+  // top:0;
+  // left:0;
+  // height: 60px;
+  width:100%;
+  flex-basis:60px;
+  a {
+    font-weight: bold;
+    color: #fff;
+    // &.router-link-exact-active {
+    //   color: #42b983;
+    // }
+  }
+}
+
 </style>

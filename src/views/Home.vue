@@ -1,8 +1,13 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <!-- <div class="home" style="height:100%;">
+      <div class="left">
+        <left-nav></left-nav>
+      </div>
+      <div class="right">
+        <router-view></router-view>
+      </div>
+  </div> -->
+  <HelloWorld />
 </template>
 
 <script>
@@ -16,3 +21,6 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+</style>
