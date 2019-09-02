@@ -5,7 +5,7 @@
         </div>
         <div class="nav">
             <ul>
-                <router-link v-for="(link,index) in links" :Key="index" :to="link.path">
+                <router-link v-for="(link,index) in links" :to="link.path" :Key="link.path">
                     <li :class="[index==clickIndex?'active':'']" @click="navClick(index)">
                         {{link.name}}
                     </li> 
@@ -33,11 +33,11 @@ export default {
             clickIndex:0,
             links:[
                 {
-                    path:'/about',
+                    path:'/system/leaderDrive',
                     name:'领导驾驶舱'
                 },
                 {
-                    path:'/doorControl',
+                    path:'/system/doorControl',
                     name:'门禁管理'
                 },
                 {

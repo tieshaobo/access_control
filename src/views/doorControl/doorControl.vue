@@ -1,0 +1,69 @@
+<template>
+    <v-index :navList="navList"></v-index>
+</template>
+<script>
+export default {
+    name:'doorControl',
+    data(){
+        return {
+            navList:[
+				{
+					name:"门禁报表",
+					path:'',
+					children:[
+						{
+							name:"大屏实时统计",
+							path:'/system/doorControl/about'
+						},
+						{
+							name:"大屏实时统计",
+							path:'/system/doorControl/'
+						},
+						{
+							name:"大屏实时统计",
+							path:'/system/doorControl/about'
+						},
+						{
+							name:"大屏实时统计",
+							path:'/system/doorControl/'
+						},
+						{
+							name:"大屏实时统计",
+							path:'/system/doorControl/about'
+						}
+					]
+				},
+				{
+					name:'门禁控制',
+					path:'',
+					children:[
+						{
+							name:"大屏实时统计",
+							path:''
+						},
+						{
+							name:"大屏实时统计",
+							path:''
+						},
+						{
+							name:"大屏实时统计",
+							path:''
+						},
+						{
+							name:"大屏实时统计",
+							path:''
+						},
+						{
+							name:"大屏实时统计",
+							path:''
+						}
+					]
+				}
+			]
+        }
+    }
+}
+</script>
+<style lang="scss" scoped>
+
+</style>

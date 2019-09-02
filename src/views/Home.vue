@@ -1,12 +1,4 @@
 <template>
-  <!-- <div class="home" style="height:100%;">
-      <div class="left">
-        <left-nav></left-nav>
-      </div>
-      <div class="right">
-        <router-view></router-view>
-      </div>
-  </div> -->
   <HelloWorld />
 </template>
 

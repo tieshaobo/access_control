@@ -1,26 +1,20 @@
 <template>
   <div id="app">
-    <el-container>
+    <!-- <el-container>
       <el-header>
         <v-header></v-header>
-      </el-header>
+      </el-header> -->
       <router-view />
-    </el-container>
-    <!-- <div id="nav">
-      <v-header></v-header>
-    </div>
-    <div class="content">
-      <router-view />
-    </div>   -->
+    <!-- </el-container> -->
   </div>
 </template>
 <script>
-import vHeader from '@/views/layout/header'
+// import vHeader from '@/views/layout/header'
 export default {
   name:'App',
-  components:{
-    vHeader
-  },
+  // components:{
+  //   vHeader
+  // },
 }
 </script>
 <style lang="scss">
@@ -42,7 +36,7 @@ html,body {
   flex-direction: column;
   justify-content: flex-start;
   flex-shrink: 1;
-  /deep/ .el-container .el-header{
+  /deep/.el-container .el-header{
     padding:0;
   }
 }
@@ -53,20 +47,6 @@ html,body {
   // height:100%;
   // margin-top:60px;
 }
-#nav {
-  // position: fixed;
-  // top:0;
-  // left:0;
-  // height: 60px;
-  width:100%;
-  flex-basis:60px;
-  a {
-    font-weight: bold;
-    color: #fff;
-    // &.router-link-exact-active {
-    //   color: #42b983;
-    // }
-  }
-}
+
 
 </style>

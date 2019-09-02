@@ -1,5 +1,5 @@
 <template>
-    <div class="wrap">
+    <div class="wrap">    
         <slot></slot>
     </div>
 </template>
@@ -8,7 +8,7 @@
 // import leftNav from "@/components/leftNav.vue";
 
 export default {
-    name: "content",
+    name: "vContent",
     components: {
         // leftNav
     }
@@ -21,5 +21,4 @@ export default {
     min-height:100%;
     margin:20px 0;
 }
-
 </style>
