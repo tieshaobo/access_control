@@ -15,11 +15,11 @@
 </template>
 <script>
 import leftNav from "@/components/leftNav.vue";
-import vContent from '@/components/content'
+// import vContent from '@/components/content'
 export default {
     name:'doorControl',
     components:{
-        vContent,
+        // vContent,
         leftNav
     },
     props:{

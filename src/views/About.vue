@@ -1,5 +1,16 @@
-<template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
-</template>
+
+<script>
+export default {
+  name:'About',
+  props:{
+    id:{
+      type:Number,
+      default:2
+    }
+  },
+  render(){
+    let Tag =`h${this.id}`;
+    return <Tag>天天向上</Tag>
+  }
+}
+</script>

@@ -119,10 +119,14 @@ export default {
     .deal {
         width:200px;
         display:flex;
+        color:#fff;
         justify-content: space-around;
         .help {
             height:60px;
             line-height:60px;
+            .el-button {
+                color:#fff;
+            }
         }
         .login {
             width:120px;

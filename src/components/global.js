@@ -1,4 +1,4 @@
-import vContent from '@/components/content'
+// import vContent from '@/components/content'
 import vIndex from '@/components/index'
 
 function gComponents(Vue) {

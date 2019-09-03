@@ -2,16 +2,16 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import About from "./views/About.vue";
-const system = () => import("@/views/system")
+const system = () => import("@/views/system/system.vue")
 //注册登录
 const signin = () => import("@/views/login/signin");
 const signup = () => import("@/views/login/signup");
 //404页面
 const notDefined = () => import('@/views/notdefined/notdefined')
 //领导驾驶舱
-const leaderDrive = () => import('@/views/leader/leaderDrive')
+const leaderDrive = () => import('@/views/system/leader/leaderDrive')
 //门禁管理
-const doorControl = () =>import("@/views/doorControl/doorControl");
+const doorControl = () =>import("@/views/system/doorControl/doorControl");
 
 
 

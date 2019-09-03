@@ -12,23 +12,23 @@ export default {
 					path:'',
 					children:[
 						{
-							name:"大屏实时统计",
+							name:"大屏实时统计1",
 							path:'/system/doorControl/about'
 						},
 						{
-							name:"大屏实时统计",
+							name:"大屏实时统计2",
 							path:'/system/doorControl/'
 						},
 						{
-							name:"大屏实时统计",
+							name:"大屏实时统计3",
 							path:'/system/doorControl/about'
 						},
 						{
-							name:"大屏实时统计",
+							name:"大屏实时统计4",
 							path:'/system/doorControl/'
 						},
 						{
-							name:"大屏实时统计",
+							name:"大屏实时统计5",
 							path:'/system/doorControl/about'
 						}
 					]

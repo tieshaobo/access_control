@@ -1,20 +1,11 @@
 <template>
   <div id="app">
-    <!-- <el-container>
-      <el-header>
-        <v-header></v-header>
-      </el-header> -->
       <router-view />
-    <!-- </el-container> -->
   </div>
 </template>
 <script>
-// import vHeader from '@/views/layout/header'
 export default {
   name:'App',
-  // components:{
-  //   vHeader
-  // },
 }
 </script>
 <style lang="scss">
