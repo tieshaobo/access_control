@@ -1,0 +1,86 @@
+/* 设置字体 */
+@mixin text($color, $size) {
+  font-size: $size;
+  color: $color;
+}
+
+/* inline-block */
+@mixin inline-block($verticalAlign: top) {
+  display: inline-block;
+  vertical-align: $verticalAlign;
+}
+
+/* 渐变 */
+/* 标题中渐变 用 line-height 控制距离 */
+@mixin title-bc-gradient($opacity: 1, $bottom: 0) {
+  position: relative;
+  &:after {
+    display: block;
+    content: "";
+    margin-left: -25px;
+    margin-bottom: $bottom;
+    width: 50px;
+    height: 4px;
+    background-image: $linear-gradient-primary;
+    background-color: $primary-blue;
+    border-radius: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    opacity: $opacity;
+  }
+}
+
+/* display flex */
+@mixin flex($direction: row, $jc: space-between, $ai: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+/* button */
+@mixin button($width, $height: 44, $type: default, $radius: true) {
+  width: $width + px;
+  height: $height + px;
+  font-size: 16px;
+  line-height: $height + px;
+  text-align: center;
+  @include inline-block();
+  cursor: pointer;
+  @if $type == default {
+    color: $text-color-title;
+    border: 1px solid $border-color-normal;
+    transition: border-color ease .4s;
+    &:hover {
+      border-color: $text-color-normal;
+    }
+  }
+  @if $type == primary {
+    color: #fff;
+    background-color: $primary-blue;
+  }
+  @if $type == gradient {
+    color: #FFF;
+    background-image: $linear-gradient-primary;
+    background-color: $primary-blue;
+  }
+  @if $type == line {
+    color: $primary-blue;
+    border: 1px solid $primary-blue;
+  }
+  @if $radius == true {
+    border-radius: $height / 2 + px;
+  }
+  @else {
+    border-radius: 4px;
+  }
+}
+
+/* 文字不换行（单行） */
+@mixin no-wrap() {
+  overflow: hidden;
+  word-break: break-all;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
