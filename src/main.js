@@ -18,3 +18,9 @@ export default new Vue({
   store,
   render: h => h(App)
 }).$mount("#app");
+
+// ;(function(){
+//   var rem = document.createElement('script');
+//   rem.src = './rem.js';
+//   document.body.appendChild(rem)
+//   })()

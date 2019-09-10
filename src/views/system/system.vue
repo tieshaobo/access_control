@@ -1,9 +1,11 @@
 <template>
     <el-container>
-        <el-header>
+        <el-header style="height: 80px;">
             <v-header></v-header>
         </el-header>
-        <router-view />
+        <div class="main">
+            <router-view />  
+        </div>          
     </el-container>
 </template>
 <script>
@@ -16,5 +18,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    
+   .el-header {
+       height:80px;
+   }
+   .main{
+       width:100%;
+       height:$content-height;
+       overflow:auto;
+   }
 </style>

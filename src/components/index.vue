@@ -56,13 +56,14 @@ export default {
 .content {
     height: $content-height;
     overflow:hidden;
+    background:rgba(10,13,56,1);
     /deep/.el-main {
         padding:30px 20px 30px 20px;
         background:#fff;
         position:relative;
         .el-breadcrumb {
             position:fixed;
-            top:60px;
+            top:80px;
             background:#fff;
             width:calc(100% - 240px);
             height:30px;

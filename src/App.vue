@@ -9,11 +9,11 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "./style/reset.css";
+@import "./style/reset.scss";
 html,body {
   height:100%;
   width:100%;
-  min-width:1200px;
+  min-width:1300px;
 }
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -29,6 +29,7 @@ html,body {
   flex-shrink: 1;
   /deep/.el-container .el-header{
     padding:0;
+    height:80px;
   }
 }
 .content {

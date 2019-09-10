@@ -21,6 +21,7 @@
                     <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
                 </div>               
                 <div class="name">name</div>
+                <div class="icon_down"></div>
             </div>
         </div>
     </div>
@@ -80,34 +81,41 @@ export default {
 </script>
 <style lang="scss" scoped>
 .header {
-    height:60px;
+    height:80px;
     // padding:0 20px;
     display:flex;
-    background: rgba(24, 144, 255, 1);
+    padding:0 160px 0 160px;
+    background: #108EE9;
     justify-content: space-between;
     .logo {
-        height:100%;
-        width:200px;
-        background:url('../../assets/img/zgt_logo.png') center center no-repeat;
+        height:40px;
+        width:272px;
+        margin:20px 0 20px 0;
+        background:url('../../assets/img/logo.png') center center no-repeat;
         background-size:contain;
         vertical-align: middle;
     }
     .nav {
-        width:auto;
+        width:840px;
         height:100%;
         &>ul {
             height:100%;
-            line-height:40px;
+            font-family:Microsoft YaHei;
+            font-weight:400;
             display:flex;
-            justify-content: flex-start;
+            justify-content: space-around;
+
             a {
-                color:#fff;
+                // color:#fff;
             }
             li {
-                padding:10px;
-                color:#434343; 
-                font-size:16px;
-                font-weight: bold;            
+                padding:10px 0px; 
+                font-size:14px;
+                line-height:60px;
+                font-family:Microsoft YaHei;
+                font-weight:400;
+                color:rgba(136,199,244,1);
+           
             }
             li:hover,.active {
                 // background:red;
@@ -117,34 +125,50 @@ export default {
         }
     }
     .deal {
-        width:200px;
+        width:160px;
         display:flex;
         color:#fff;
         justify-content: space-around;
         .help {
-            height:60px;
-            line-height:60px;
+            height:80px;
+            line-height:80px;
+            padding-right:5px;
             .el-button {
                 color:#fff;
             }
         }
         .login {
-            width:120px;
+            width:100px;
             display:flex;
-            height:40px;
-            padding:10px;
+            height:28px;
+            padding:26px 5px;
             justify-content: flex-start;
-            line-height:40px;
+            line-height:28px;
             .photo {
-                width:40px;
-                height:40px;
+                width:28px;
+                height:28px;
+                .el-avatar {
+                    width:100%;
+                    height:100%;
+                }
             }
             .name {
                 margin-left:10px;
-                width:90px;
+                // width:90px;
                 overflow: hidden;
                 text-overflow:ellipsis;
                 white-space: nowrap;
+                text-align: left;
+                font-size:14px;
+                font-family:Microsoft YaHei;
+                font-weight:400;
+                color:rgba(255,255,255,1);
+            }
+            .icon_down{
+                width:6px;
+                height:4px;
+                background:url("../../assets/img/down.png") center center no-repeat;
+                margin: 12px 0 0 10px;
             }
         }
     }
