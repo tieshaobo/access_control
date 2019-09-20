@@ -6,8 +6,19 @@ import axios from 'axios';
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+// 完整引入v-charts
+
+import VCharts from 'v-charts'
+Vue.use(VCharts)
+ 
+// 按需引入v-charts
+// import VeLine from 'v-charts/lib/line'
+// import VeHistogram from 'v-charts/lib/histogram'
+// Vue.component(VeLine.name,VeLine)
+// Vue.component(VeHistogram.name,VeHistogram)
+
 import gComponent from '@/components/global'
-import '@/utils/interceptors'
+// import '@/utils/interceptors'
 
 Vue.config.productionTip = false;
 

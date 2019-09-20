@@ -1,0 +1,75 @@
+<template>
+    <v-index :navList="navList" :title="title"></v-index>
+</template>
+<script>
+export default {
+    name:'doorControl',
+    data(){
+        return {
+			title:{
+				name:"系统管理",
+				path:'/system/systemControl'
+			},
+            navList:[
+				{
+					name:"信息管理",
+					path:'/system/systemControl',
+					children:[
+						{
+							name:"组织结构",
+							path:'/system/systemControl/'
+						},
+						{
+							name:"用户管理",
+							path:'/system/systemControl/userControl'
+						},
+						{
+							name:"用户黑名单",
+							path:'/system/systemControl/userBlack'
+						},
+						{
+							name:"用户编号设置",
+							path:'/system/systemControl/userNumDesign'
+						}
+					]
+				},
+				{
+					name:'权限管理',
+					path:'',
+					children:[
+						{
+							name:"角色管理",
+							path:''
+						},
+						{
+							name:"菜单管理",
+							path:''
+						},
+						{
+							name:"数据字典",
+							path:''
+						}
+					]
+				},
+				{
+					name:'系统管理',
+					path:'',
+					children:[
+						{
+							name:"系统参数",
+							path:""
+						},
+						{
+							name:"日志管理",
+							path:""
+						},
+					]
+				}
+			]
+        }
+    }
+}
+</script>
+<style lang="scss" scoped>
+
+</style>

@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import {login} from '@/api/login'
 export default {
   name: "signin",
   data() {
@@ -34,11 +35,23 @@ export default {
   created() {
    
   },
-  methods: {
+  methods: {  
     signinValidate() {
       this.$refs.form.validate(valid => {
         if (!valid) return;
+        let data = {
+          userName: this.form.userName,
+          password: this.form.password
+        };
+        login(data).then((res)=>{
+          if(res.success){
+            this.$store.commit("setUserName",{name:res.data.userName})
+            this.$router.push('/system');
 
+          }else{
+            this.$message.warning(res.message)
+          }
+        });
       });
     },
     toSignup() {

@@ -8,10 +8,7 @@
 // import leftNav from "@/components/leftNav.vue";
 
 export default {
-    name: "vContent",
-    components: {
-        // leftNav
-    }
+    name: "vContent"
 };
 </script>
 
@@ -19,6 +16,15 @@ export default {
 .wrap {
     width:100%;
     min-height:100%;
-    margin:20px 0;
+    box-sizing: border-box;
+    padding:10px 0;
+    background:#fff;
+    &:after{
+            clear: both;
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+        }
 }
 </style>

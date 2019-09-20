@@ -7,7 +7,14 @@ module.exports = {
   lintOnSave: true,
   publicPath: '/',
   devServer: {
-      open:true
+    open:true,
+    proxy: {
+      '/': {
+        target: 'http://172.20.5.101:8000',
+        ws: true,
+        changeOrigin: true
+      }
+    }
   },
   pluginOptions: {
     'style-resources-loader': {

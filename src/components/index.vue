@@ -6,7 +6,8 @@
         <el-main>
             <template v-if="breadcrumbList.length>0">
                 <el-breadcrumb separator-class="el-icon-arrow-right">
-                    <el-breadcrumb-item v-for="(item,index) in breadcrumbList" :key="index" :to="{ path: item.path }">{{item.name}}</el-breadcrumb-item>              
+                    <!--:to="{ path: item.path }"-->
+                    <el-breadcrumb-item v-for="(item,index) in breadcrumbList" :key="index" >{{item.name}}</el-breadcrumb-item>              
                 </el-breadcrumb>
             </template>           
             <router-view></router-view>
@@ -23,6 +24,13 @@ export default {
         leftNav
     },
     props:{
+        title:{
+            type:Object,
+            default:()=>({
+                name:'',
+                path:''
+            })
+        },
         navList:{
             type:Array,
 			default:()=>[],
@@ -36,7 +44,14 @@ export default {
     },
     methods:{
         getActive(active){//active 是 "0-0"的格式
-            this.breadcrumbList = [];
+            if(this.title.name){
+                this.breadcrumbList = [{
+                    name:this.title.name,
+                    path:this.title.path
+                }];
+            }else{
+                this.breadcrumbList = [];
+            };          
             let arr = active.split("-");
             this.breadcrumbList.push({
                 name:this.navList[arr[0]].name,
@@ -59,12 +74,14 @@ export default {
     background:rgba(10,13,56,1);
     /deep/.el-main {
         padding:30px 20px 30px 20px;
-        background:#fff;
+        background:rgba(244, 244, 244, 1);
         position:relative;
         .el-breadcrumb {
             position:fixed;
+            background:#f4f4f4;
+            z-index:999;
             top:80px;
-            background:#fff;
+            // background:#fff;
             width:calc(100% - 240px);
             height:30px;
             line-height:30px;

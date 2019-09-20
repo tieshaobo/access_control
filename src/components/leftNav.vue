@@ -6,20 +6,20 @@
         @close="handleClose"
 		@select="handleSelect"
         background-color="rgba(16, 141, 233, 1)"
-        text-color="#fff"
+        text-color="#333"
 		:default-active="defaultActive"
 		:default-openeds="defaultOpens"
-        active-text-color="#ffd04b">
+        active-text-color="#fff">
 			<el-submenu v-for="(item,index) in list" :index='`${index}`' :key="index">
 			<!-- <el-submenu v-for="(item,index) in list" :index='`${item.name}`' :key="index"> -->
                 <template slot="title">
-					<i class="el-icon-location"></i>
-					<span>{{item.name}}</span>
+					<!-- <i class="el-icon-location"></i> -->
+					<span style="font-size:20px;">{{item.name}}</span>
                 </template>
 				<template v-if="item.children&&item.children.length>0">
 					<el-menu-item-group >
 						<router-link v-for="(child,i) in item.children" :key="`${index}-${i}`" :to="child.path">
-							<el-menu-item  :index="`${index}-${i}`">{{child.name}}</el-menu-item>
+							<el-menu-item  :index="`${index}-${i}`" >{{child.name}}</el-menu-item>
 						</router-link>
 						<!-- <el-menu-item  v-for="(child,i) in item.children" :index="child.path" :key="`${index}-${i}`">{{child.name}}</el-menu-item> -->
 					</el-menu-item-group>
@@ -96,23 +96,21 @@ export default {
 			type:Array,
 			default:()=>[],
 			required:true
-		},
-		//支持传入默认打开和默认选中项  需要在路由支持中设置默认进入的页面
-		defaultOpens:{
-			type:Array,
-			default:()=>[0]
-		},
-		defaultActive:{
-			type:String,
-			default:'0-0'
-		}
+		}		
 	},
     data(){
         return {
 			active:'',
+			defaultActive:'',
+			defaultOpens:[0]
         }
 	},
 	mounted(){
+		this.defaultActive = this.$route.meta.active;
+		this.defaultOpens = [this.$route.meta.active.split('-')[0]]
+		if(!this.defaultActive){
+			this.defaultActive = '0-0'
+		}
 		this.$emit('getActive',this.defaultActive);
 	},
 	methods: {
@@ -143,6 +141,9 @@ export default {
 			}
 			.el-menu-item-group__title {
 				padding:0;
+			}
+			.el-submenu .el-menu-item {
+				text-align: left;
 			}
 		}
 		

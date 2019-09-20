@@ -1,35 +1,39 @@
 <template>
-    <v-index :navList="navList"></v-index>
+    <v-index :navList="navList" :title="title"></v-index>
 </template>
 <script>
 export default {
     name:'doorControl',
     data(){
         return {
+			title:{
+				name:"门禁管理",
+				path:'/system/doorControl'
+			},
             navList:[
 				{
 					name:"门禁报表",
-					path:'',
+					path:'/system/doorControl',
 					children:[
 						{
-							name:"大屏实时统计1",
-							path:'/system/doorControl/about'
-						},
-						{
-							name:"大屏实时统计2",
+							name:"实时出入统计",
 							path:'/system/doorControl/'
 						},
 						{
-							name:"大屏实时统计3",
-							path:'/system/doorControl/about'
+							name:"实时出入监控",
+							path:'/system/doorControl/outInObvierce'
 						},
 						{
-							name:"大屏实时统计4",
-							path:'/system/doorControl/'
+							name:"出入明细报表",
+							path:'/system/doorControl/outInTable'
 						},
 						{
-							name:"大屏实时统计5",
-							path:'/system/doorControl/about'
+							name:"异常出入报表",
+							path:'/system/doorControl/outInWrongTable'
+						},
+						{
+							name:"二维码访客报表",
+							path:'/system/doorControl/QRcodeTable'
 						}
 					]
 				},
@@ -38,25 +42,53 @@ export default {
 					path:'',
 					children:[
 						{
-							name:"大屏实时统计",
-							path:''
+							name:"控制器配置",
+							path:'/system/doorControl/controlerConfig'
 						},
 						{
-							name:"大屏实时统计",
-							path:''
+							name:"反潜回控制",
+							path:'/system/doorControl/fanQianControl'
 						},
 						{
-							name:"大屏实时统计",
-							path:''
+							name:"远程控制台",
+							path:'/system/doorControl/farControl'
 						},
 						{
-							name:"大屏实时统计",
-							path:''
+							name:"黑名单",
+							path:'/system/doorControl/blackTable'
+						},
+						// {
+						// 	name:"大屏实时统计",
+						// 	path:''
+						// }
+					]
+				},
+				{
+					name:'访客权限',
+					path:'',
+					children:[
+						{
+							name:"内部门禁访客",
+							path:"/system/doorControl/innerVisiter"
 						},
 						{
-							name:"大屏实时统计",
-							path:''
-						}
+							name:"活动二维码访客",
+							path:"/system/doorControl/temporaryVisiter"
+						},
+					]
+				},
+				{
+					name:'节目二维码票务',
+					path:'',
+					children:[
+						{
+							name:"节目票务管理",
+							path:"/system/doorControl/jieMuTicket"
+						},
+						{
+							name:"二维码访客权限",
+							path:"/system/doorControl/qrCodeRight"
+						},
 					]
 				}
 			]

@@ -11,38 +11,41 @@ const apis = ['/tx-ad-service']
 
 axios.defaults.timeout = 30000
 
-axios.interceptors.request.use(
-  config => {
-    // console.log(config)
-    if (apis.some(item => config.url.match(item))) {
-      config.url = '/api' + config.url
-    }
-    const isToken = tokenArray.indexOf(config.url) !== -1
-    if (!isToken) {
-      const accessToken = localStorage.getItem('access_token')
-      const tokenType = 'bearer'
-      if (accessToken) {
-        config.headers['Authorization'] = tokenType + ' ' + accessToken
-        if(config.url.includes('/tx-ad-service/2/')) {
-          config.headers['currentRole'] = "advertiser"
-        }
-      }
-    } else {
-      // config.data = qs.stringify(config.data)
-    }
-    return config
-  }, (error) => {
-    return Promise.reject(error)
-  }
-)
+// axios.interceptors.request.use(
+//   config => {
+//     // console.log(config)
+//     if (apis.some(item => config.url.match(item))) {
+//       config.url = '/api' + config.url
+//     }
+//     const isToken = tokenArray.indexOf(config.url) !== -1
+//     if (!isToken) {
+//       const accessToken = localStorage.getItem('access_token')
+//       const tokenType = 'bearer'
+//       if (accessToken) {
+//         config.headers['Authorization'] = tokenType + ' ' + accessToken
+//         if(config.url.includes('/tx-ad-service/2/')) {
+//           config.headers['currentRole'] = "advertiser"
+//         }
+//       }
+//     } else {
+//       // config.data = qs.stringify(config.data)
+//     }
+//     return config
+//   }, (error) => {
+//     return Promise.reject(error)
+//   }
+// )
 
 axios.interceptors.response.use(
   (res) => {
     // console.log(res)
-    const isToken = tokenArray.indexOf(res.config.url) !== -1
-    if (isToken) return res
-    let code = String(res.data.code)
-    if (code === '0') return res
+    // const isToken = tokenArray.indexOf(res.config.url) !== -1
+    // if (isToken) return res
+    // let code = String(res.data.code)
+    // if (code === '0') return res
+    if(res.success){
+      vm.$router.push({ path: '/signin' })
+    }
     // 弹出错误信息
     vm.$message.warning(res.data.msg || res.data.remark || res.data.message || '未知错误')
     // 未登录

@@ -20,7 +20,7 @@
                 <div class="photo">
                     <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
                 </div>               
-                <div class="name">name</div>
+                <div class="name" :title="userName">{{userName}}</div>
                 <div class="icon_down"></div>
             </div>
         </div>
@@ -31,7 +31,7 @@ export default {
     name:'topNav',
     data(){
         return {
-            clickIndex:0,
+            clickIndex:-1,
             links:[
                 {
                     path:'/system/leaderDrive',
@@ -42,39 +42,57 @@ export default {
                     name:'门禁管理'
                 },
                 {
-                    path:'/',
+                    path:'/system/usersControl',
                     name:'人员管理'
                 },
                 {
-                    path:'/',
+                    path:'/system/carControl',
                     name:'车库管理'
                 },
                 {
-                    path:'/',
+                    path:'/system/machineControl',
                     name:'机房管理'
                 },
                 {
-                    path:'/',
+                    path:'/system/safetyControl',
                     name:'综合安防'
                 },
                 {
-                    path:'/',
+                    path:'/system/energyControl',
                     name:'能耗管理'
                 },
                 {
-                    path:'/',
+                    path:'/system/consumeControl',
                     name:'消费管理'
                 },
                 {
-                    path:'/',
+                    path:'/system/systemControl',
                     name:'系统管理'
                 }
             ]
         }
     },
+    computed:{
+        userName(){
+            debugger
+            return this.$store.state.userInfo.userName
+        }
+    },
+    mounted(){
+        this.links.forEach((item,index)=>{
+            if(this.$route.path.includes(item.path)) {
+                this.clickIndex = index;
+            }
+        })
+        console.log(this.$route.path)
+
+    },
     methods:{
         navClick(index){
             this.clickIndex = index;
+        },
+        getUserInfo() {
+
         }
     }
 }

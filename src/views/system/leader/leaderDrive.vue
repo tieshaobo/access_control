@@ -63,22 +63,22 @@
             </div>
             <div class="chart_warp">
                 <div class="chart">
-
+                    <ve-histogram :series="chart1.series" :grid="chart1.grid" :title="chart1.title" :legend="[]" :xAxis="chart1.xAxis" :yAxis="chart1.yAxis"></ve-histogram>
                 </div>
                 <div class="chart">
-
+                    <ve-histogram :series="chart2.series" :grid="chart2.grid" :title="chart2.title" :legend="[]" :xAxis="chart2.xAxis" :yAxis="chart2.yAxis"></ve-histogram>
                 </div>
                 <div class="chart">
-
+                    <ve-line :series="chart3.series" :grid="chart3.grid" :title="chart3.title" :legend="[]" :xAxis="chart3.xAxis" :yAxis="chart3.yAxis"></ve-line>
                 </div>
                 <div class="chart">
-
+                    <ve-histogram :series="chart4.series" :grid="chart4.grid" :title="chart4.title" :legend="chart4.legend" :xAxis="chart4.xAxis" :yAxis="chart4.yAxis"></ve-histogram>
                 </div>
                 <div class="chart">
-
+                    <ve-histogram :series="chart5.series" :grid="chart5.grid" :title="chart5.title" :legend="chart5.legend" :xAxis="chart5.xAxis" :yAxis="chart5.yAxis"></ve-histogram>
                 </div>
                 <div class="chart">
-
+                    <ve-line :series="chart6.series" :grid="chart6.grid" :title="chart6.title" :legend="chart6.legend" :xAxis="chart6.xAxis" :yAxis="chart6.yAxis"></ve-line>
                 </div>
             </div>
             <div class="hoteare">
@@ -104,7 +104,623 @@ export default {
                 {color: '#F20000', percentage: 60},
                 {color: '#FFEA00', percentage: 80},
                 {color: '#04C100', percentage: 100}
-            ]
+            ],
+            chartColors:['#c23531','#2f4554', '#61a0a8', '#d48265', '#91c7ae','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3'],
+            chart1:{
+                title:{
+                    text:"绩效指数",
+                    top: '5%',
+                    left: 'center',
+                    textStyle:{
+                        color:'#fff',
+                        fontSize:'24',
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:'400',
+                        lineHeight:23,
+                    }
+                },
+                grid:{
+                    bottom:30,
+                    top:80,
+                    shadowOffsetX:20,
+                    shadowColor:"#6D96FF"
+                },
+                xAxis:{
+                    type:'category',
+                    show:true,
+                    position:'bottom',
+                    nameTextStyle:{
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',    
+                    },
+                    axisLine :{
+                        show:true,
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    },
+                    axisLabel:{
+                        show:true,
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:400
+                    },
+                    data:[1,2,3,4,5,6],
+                },
+                yAxis: {
+                    type: 'value',
+                    name:'指数',
+                    nameTextStyle:{
+                        color:'#CDD6E5',
+                        fontSize:12,
+                        fontWeight:400,
+                    },
+                    axisLine:{
+                        show:true,
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    },
+                    axisLabel:{
+                        show:true,
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:400
+                    },
+                    splitLine:{
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    }
+                },
+                series: [{
+                    data: [120, 200, 150, 80, 70, 110],
+                    type: 'bar',
+                    itemStyle:{
+                        color:"#6D96FF",
+                        width:30
+                    },
+                    barWidth:30
+                }]
+            },
+            chart2:{
+                title:{
+                    text:"出勤指数",
+                    top: '5%',
+                    left: 'center',
+                    textStyle:{
+                        color:'#fff',
+                        fontSize:'24',
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:'400',
+                        lineHeight:23,
+                    }
+                },
+                grid:{
+                    bottom:30,
+                    top:80,
+                    shadowOffsetX:20,
+                    shadowColor:"#6D96FF"
+                },
+                xAxis:{
+                    type:'category',
+                    show:true,
+                    position:'bottom',
+                    nameTextStyle:{
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',    
+                    },
+                    axisLine :{
+                        show:true,
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    },
+                    axisLabel:{
+                        show:true,
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:400
+                    },
+                    data:[1,2,3,4,5,6],
+                },
+                yAxis: {
+                    type: 'value',
+                    name:'msv/小时',
+                    nameTextStyle:{
+                        color:'#CDD6E5',
+                        fontSize:12,
+                        fontWeight:400,
+                    },
+                    axisLine:{
+                        show:true,
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    },
+                    axisLabel:{
+                        show:true,
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:400
+                    },
+                    splitLine:{
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    }
+                },
+                series: [{
+                    data: [120, 200, 150, 80, 70, 110],
+                    type: 'bar',
+                    itemStyle:{
+                        color:"#61C3EC",
+                    },
+                    barWidth:30
+                }]
+            },
+            chart3:{
+                title:{
+                    text:"实时耗能",
+                    top: '5%',
+                    left: 'center',
+                    textStyle:{
+                        color:'#fff',
+                        fontSize:'24',
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:'400',
+                        lineHeight:23,
+                    }
+                },
+                grid:{
+                    bottom:30,
+                    top:80,
+                    shadowOffsetX:20,
+                    shadowColor:"#6D96FF"
+                },
+                xAxis:{
+                    type:'category',
+                    show:true,
+                    position:'bottom',
+                    nameTextStyle:{
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',
+                        align:'center',    
+                    },
+                    axisLine :{
+                        show:true,
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    },
+                    axisLabel:{
+                        show:true,
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:400
+                    },
+                    splitLine:{
+                        show:true,
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    },
+                    data:[1,2,3,4,5,6],
+                },
+                yAxis: {
+                    type: 'value',
+                    name:'msv/小时',
+                    nameTextStyle:{
+                        color:'#CDD6E5',
+                        fontSize:12,
+                        fontWeight:400,
+                    },
+                    axisLine:{
+                        show:true,
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    },
+                    axisLabel:{
+                        show:true,
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:400
+                    },
+                    splitLine:{
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    }
+                },
+                series: [{
+                    data: [120, 200, 150, 80, 70, 110],
+                    type: 'line',
+                    itemStyle:{
+                        color:"#108EE9",
+                    },
+                    lineStyle:{
+                        color:"#108EE9",
+                    }
+                }]
+            },
+            chart4:{
+                title:{
+                    text:"员工出勤时长统计",
+                    top: '5%',
+                    left: 'center',
+                    textStyle:{
+                        color:'#fff',
+                        fontSize:'24',
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:'400',
+                        lineHeight:23,
+                    }
+                },
+                legend:{
+                    top:"12%",
+                    right:"2%",
+                    itemWidth:8,
+                    itemHeight:8,
+                    height:"13px",
+                    textStyle:{
+                        color:"#CDD6E5",
+                        fontSize:12,
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:'400',
+                        lineHeight:16
+                    },
+                    data:[{
+                        name:"张三",
+                        icon:"rect"
+                    },{
+                        name:"李四",
+                        icon:"rect"
+                    },{
+                        name:"王五",
+                        icon:"rect"
+                    }],
+
+                },
+                grid:{
+                    bottom:30,
+                    top:80,
+                    shadowOffsetX:20,
+                    shadowColor:"#6D96FF"
+                },
+                xAxis:{
+                    type:'category',
+                    show:true,
+                    position:'bottom',
+                    nameTextStyle:{
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',    
+                    },
+                    axisLine :{
+                        show:true,
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    },
+                    axisLabel:{
+                        show:true,
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:400
+                    },
+                    data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+                },
+                yAxis: {
+                    type: 'value',
+                    name:'小时',
+                    nameTextStyle:{
+                        color:'#CDD6E5',
+                        fontSize:12,
+                        fontWeight:400,
+                    },
+                    axisLine:{
+                        show:true,
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    },
+                    axisLabel:{
+                        show:true,
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:400
+                    },
+                    splitLine:{
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    }
+                },
+                series: [{
+                        name:"张三",
+                        data:[100,200,300,400],
+                        type: 'bar',
+                        itemStyle:{
+                            color:"#856DFF",
+                            barWidth:30
+                        }
+                    },{
+                        name:"李四",
+                        data:[100,200,300,400],
+                        type: 'bar',
+                        itemStyle:{
+                            color:"#61C3EC",
+                            barWidth:30
+                        }
+                    },{
+                        name:"王五",
+                        data:[100,200,300,400],
+                         type: 'bar',
+                        itemStyle:{
+                            color:"#108EE9",
+                            barWidth:30
+                        }
+                    }]
+            },
+            chart5:{
+                title:{
+                    text:"库房台账",
+                    top: '5%',
+                    left: 'center',
+                    textStyle:{
+                        color:'#fff',
+                        fontSize:'24',
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:'400',
+                        lineHeight:23,
+                    }
+                },
+                legend:{
+                    top:"12%",
+                    right:"2%",
+                    itemWidth:8,
+                    itemHeight:8,
+                    height:"13px",
+                    textStyle:{
+                        color:"#CDD6E5",
+                        fontSize:12,
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:'400',
+                        lineHeight:16
+                    },
+                    data:[{
+                        name:"张三",
+                        icon:"rect"
+                    },{
+                        name:"李四",
+                        icon:"rect"
+                    },{
+                        name:"王五",
+                        icon:"rect"
+                    }],
+
+                },
+                grid:{
+                    bottom:30,
+                    top:80,
+                    shadowOffsetX:20,
+                    shadowColor:"#6D96FF"
+                },
+                xAxis:{
+                    type:'category',
+                    show:true,
+                    position:'bottom',
+                    nameTextStyle:{
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',    
+                    },
+                    axisLine :{
+                        show:true,
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    },
+                    axisLabel:{
+                        show:true,
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:400
+                    },
+                    data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+                },
+                yAxis: {
+                    type: 'value',
+                    name:'',
+                    nameTextStyle:{
+                        color:'#CDD6E5',
+                        fontSize:12,
+                        fontWeight:400,
+                    },
+                    axisLine:{
+                        show:true,
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    },
+                    axisLabel:{
+                        show:true,
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:400
+                    },
+                    splitLine:{
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    }
+                },
+                series: [{
+                        name:"张三",
+                        data:[100,200,300,400],
+                        type: 'bar',
+                        itemStyle:{
+                            color:"#856DFF",
+                            barWidth:30
+                        }
+                    },{
+                        name:"李四",
+                        data:[100,200,300,400],
+                        type: 'bar',
+                        itemStyle:{
+                            color:"#61C3EC",
+                            barWidth:30
+                        }
+                    },{
+                        name:"王五",
+                        data:[100,200,300,400],
+                         type: 'bar',
+                        itemStyle:{
+                            color:"#108EE9",
+                            barWidth:30
+                        }
+                    }]
+            },
+            chart6:{
+                title:{
+                    text:"各闸机出入统计",
+                    top: '5%',
+                    left: 'center',
+                    textStyle:{
+                        color:'#fff',
+                        fontSize:'24',
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:'400',
+                        lineHeight:23,
+                    }
+                },
+                legend:{
+                    top:"12%",
+                    right:"2%",
+                    itemWidth:8,
+                    itemHeight:8,
+                    height:"13px",
+                    textStyle:{
+                        color:"#CDD6E5",
+                        fontSize:12,
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:'400',
+                        lineHeight:16
+                    },
+                    data:[{
+                        name:"张三",
+                        icon:"rect"
+                    },{
+                        name:"李四",
+                        icon:"rect"
+                    },{
+                        name:"王五",
+                        icon:"rect"
+                    }],
+
+                },
+                grid:{
+                    left:20,
+                    bottom:30,
+                    top:80,
+                    shadowOffsetX:20,
+                    shadowColor:"#6D96FF"
+                },
+                xAxis:{
+                    type:'category',
+                    show:true,
+                    position:'bottom',
+                    nameTextStyle:{
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',
+                        align:'center',    
+                    },
+                    axisLine :{
+                        show:true,
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    },
+                    axisLabel:{
+                        show:true,
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:400
+                    },
+                    splitLine:{
+                        show:true,
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    },
+                    data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+                },
+                yAxis: {
+                    type: 'value',
+                    name:'',
+                    nameTextStyle:{
+                        color:'#CDD6E5',
+                        fontSize:12,
+                        fontWeight:400,
+                    },
+                    axisLine:{
+                        show:true,
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    },
+                    axisLabel:{
+                        show:true,
+                        color:"#CDD6E5",
+                        fontSize:16,
+                        fontFamily:'Microsoft YaHei',
+                        fontWeight:400
+                    },
+                    splitLine:{
+                        lineStyle:{
+                            color:'#2E466D'
+                        }
+                    }
+                },
+                series: [{
+                        name:"张三",
+                        data:[100,200,300,400],
+                        type: 'line',
+                        itemStyle:{
+                            color:"#856DFF",
+                        }
+                    },{
+                        name:"李四",
+                        data:[600,200,300,400],
+                        type: 'line',
+                        itemStyle:{
+                            color:"#61C3EC",
+                        }
+                    },{
+                        name:"王五",
+                        data:[100,300,600,400],
+                         type: 'line',
+                        itemStyle:{
+                            color:"#108EE9",
+                        }
+                    }]
+            },
         }
     }
 }
@@ -218,12 +834,14 @@ export default {
                 padding-top:30px;
                 display:flex;
                 flex-wrap:wrap;
-                justify-content: space-around;
+                justify-content: space-between;
                 .chart{
-                    width:48%;
+                    width:49%;
                     height:390px;
                     margin:10px 0;
-                    background:#eee;
+                    // background:#eee;
+                    background:url('../../../assets/img/border.png') center no-repeat;
+                    background-size: 100% 100%;
                 }
             }
             .hoteare {                
