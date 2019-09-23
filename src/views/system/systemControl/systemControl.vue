@@ -39,15 +39,15 @@ export default {
 					children:[
 						{
 							name:"角色管理",
-							path:''
+							path:'/system/systemControl/roleControl'
 						},
 						{
 							name:"菜单管理",
-							path:''
+							path:'/system/systemControl/menuControl'
 						},
 						{
 							name:"数据字典",
-							path:''
+							path:'/system/systemControl/dataDictionary'
 						}
 					]
 				},

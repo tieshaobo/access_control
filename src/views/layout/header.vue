@@ -20,17 +20,29 @@
                 <div class="photo">
                     <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
                 </div>               
-                <div class="name" :title="userName">{{userName}}</div>
-                <div class="icon_down"></div>
+                <!-- <div class="name" :title="userName">{{userName}}</div> -->
+                <!-- <div class="icon_down"></div> -->
+                <el-dropdown trigger="click" @command="loginOut">
+                    <span class="el-dropdown-link">
+                        <div class="name" :title="userName">{{userName}}</div>
+                        <i class="el-icon-caret-bottom arrow"></i>
+                    </span>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item v-if="!userName">登陆</el-dropdown-item>
+                        <el-dropdown-item v-if="userName">退出</el-dropdown-item>
+                    </el-dropdown-menu>
+                </el-dropdown>
             </div>
         </div>
     </div>
 </template>
 <script>
+import { loginOut } from '@/api/login'
 export default {
     name:'topNav',
     data(){
         return {
+            userName:'',
             clickIndex:-1,
             links:[
                 {
@@ -72,20 +84,17 @@ export default {
             ]
         }
     },
-    computed:{
-        userName(){
-            debugger
-            return this.$store.state.userInfo.userName
-        }
-    },
     mounted(){
         this.links.forEach((item,index)=>{
             if(this.$route.path.includes(item.path)) {
                 this.clickIndex = index;
             }
-        })
-        console.log(this.$route.path)
-
+        });
+        if(sessionStorage.getItem('userName')){
+            this.userName = sessionStorage.getItem('userName');
+        } else {
+            this.userName = this.$store.state.userInfo.userName;
+        } 
     },
     methods:{
         navClick(index){
@@ -93,6 +102,14 @@ export default {
         },
         getUserInfo() {
 
+        },
+        loginOut(){
+            debugger
+            loginOut({}).then((res)=>{
+                if(res.success){
+                    this.$router.push("/signin");
+                }  
+            })
         }
     }
 }
@@ -170,6 +187,11 @@ export default {
                     height:100%;
                 }
             }
+            .el-dropdown-link {
+                display:flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
             .name {
                 margin-left:10px;
                 // width:90px;
@@ -182,12 +204,15 @@ export default {
                 font-weight:400;
                 color:rgba(255,255,255,1);
             }
-            .icon_down{
-                width:6px;
-                height:4px;
-                background:url("../../assets/img/down.png") center center no-repeat;
-                margin: 12px 0 0 10px;
+            .el-icon-caret-bottom.arrow {
+                line-height:1.5;
             }
+            // .icon_down{
+            //     width:6px;
+            //     height:4px;
+            //     background:url("../../assets/img/down.png") center center no-repeat;
+            //     margin: 12px 0 0 10px;
+            // }
         }
     }
 }  

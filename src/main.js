@@ -10,7 +10,9 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 import VCharts from 'v-charts'
 Vue.use(VCharts)
- 
+
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts;
 // 按需引入v-charts
 // import VeLine from 'v-charts/lib/line'
 // import VeHistogram from 'v-charts/lib/histogram'

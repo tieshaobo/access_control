@@ -62,23 +62,23 @@
                 </div>
             </div>
             <div class="chart_warp">
-                <div class="chart">
-                    <ve-histogram :series="chart1.series" :grid="chart1.grid" :title="chart1.title" :legend="[]" :xAxis="chart1.xAxis" :yAxis="chart1.yAxis"></ve-histogram>
+                <div class="chart" id="chart1">
+                    <!-- <ve-histogram :series="chart1.series" :grid="chart1.grid" :title="chart1.title" :legend="[]" :xAxis="chart1.xAxis" :yAxis="chart1.yAxis"></ve-histogram> -->
                 </div>
-                <div class="chart">
-                    <ve-histogram :series="chart2.series" :grid="chart2.grid" :title="chart2.title" :legend="[]" :xAxis="chart2.xAxis" :yAxis="chart2.yAxis"></ve-histogram>
+                <div class="chart" id="chart2">
+                    <!-- <ve-histogram :series="chart2.series" :grid="chart2.grid" :title="chart2.title" :legend="[]" :xAxis="chart2.xAxis" :yAxis="chart2.yAxis"></ve-histogram> -->
                 </div>
-                <div class="chart">
-                    <ve-line :series="chart3.series" :grid="chart3.grid" :title="chart3.title" :legend="[]" :xAxis="chart3.xAxis" :yAxis="chart3.yAxis"></ve-line>
+                <div class="chart" id="chart3">
+                    <!-- <ve-line :series="chart3.series" :grid="chart3.grid" :title="chart3.title" :legend="[]" :xAxis="chart3.xAxis" :yAxis="chart3.yAxis"></ve-line> -->
                 </div>
-                <div class="chart">
-                    <ve-histogram :series="chart4.series" :grid="chart4.grid" :title="chart4.title" :legend="chart4.legend" :xAxis="chart4.xAxis" :yAxis="chart4.yAxis"></ve-histogram>
+                <div class="chart" id="chart4">
+                    <!-- <ve-histogram :series="chart4.series" :grid="chart4.grid" :title="chart4.title" :legend="chart4.legend" :xAxis="chart4.xAxis" :yAxis="chart4.yAxis"></ve-histogram> -->
                 </div>
-                <div class="chart">
-                    <ve-histogram :series="chart5.series" :grid="chart5.grid" :title="chart5.title" :legend="chart5.legend" :xAxis="chart5.xAxis" :yAxis="chart5.yAxis"></ve-histogram>
+                <div class="chart" id="chart5">
+                    <!-- <ve-histogram :series="chart5.series" :grid="chart5.grid" :title="chart5.title" :legend="chart5.legend" :xAxis="chart5.xAxis" :yAxis="chart5.yAxis"></ve-histogram> -->
                 </div>
-                <div class="chart">
-                    <ve-line :series="chart6.series" :grid="chart6.grid" :title="chart6.title" :legend="chart6.legend" :xAxis="chart6.xAxis" :yAxis="chart6.yAxis"></ve-line>
+                <div class="chart" id="chart6">
+                    <!-- <ve-line :series="chart6.series" :grid="chart6.grid" :title="chart6.title" :legend="chart6.legend" :xAxis="chart6.xAxis" :yAxis="chart6.yAxis"></ve-line> -->
                 </div>
             </div>
             <div class="hoteare">
@@ -722,6 +722,21 @@ export default {
                     }]
             },
         }
+    },
+    mounted() {
+        let chart1 = this.$echarts.init(document.getElementById('chart1')),
+            chart2 = this.$echarts.init(document.getElementById('chart2')),
+            chart3 = this.$echarts.init(document.getElementById('chart3')),
+            chart4 = this.$echarts.init(document.getElementById('chart4')),
+            chart5 = this.$echarts.init(document.getElementById('chart5')),
+            chart6 = this.$echarts.init(document.getElementById('chart6'));
+            
+        chart1.setOption(this.chart1);
+        chart2.setOption(this.chart2);
+        chart3.setOption(this.chart3);
+        chart4.setOption(this.chart4);
+        chart5.setOption(this.chart5);
+        chart6.setOption(this.chart6);
     }
 }
 </script>

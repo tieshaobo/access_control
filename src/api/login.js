@@ -3,7 +3,7 @@ import { fetch } from '@/utils/fetch'
 //登录
 export const login = (params) => fetch('/login/do', {...params})
 //登出
-export const loginout = (params) => fetch('/login/out', {...params})
+export const loginOut = (params) => fetch('/login/out', {...params})
 //登录密码修改
 export const changePassword = (params) => fetch('/login/changePassword/do',{...params})
 //获取登录信息

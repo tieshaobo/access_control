@@ -38,6 +38,10 @@ const systemControl = () => import("@/views/system/systemControl/systemControl")
     const userControl = () => import("@/views/system/systemControl/userControl");//用户管理
     const userBlack = () => import("@/views/system/systemControl/userBlack");//用户黑名单
     const userNumDesign = () => import("@/views/system/systemControl/userNumDesign");//用户编号设置
+    //权限管理
+    const roleControl = () => import("@/views/system/systemControl/roleControl");//角色管理
+    const menuControl = () => import("@/views/system/systemControl/menuControl");//菜单管理
+    const dataDictionary = () => import("@/views/system/systemControl/dataDictionary")//数据字典
 
 
 
@@ -46,7 +50,7 @@ const systemControl = () => import("@/views/system/systemControl/systemControl")
 Vue.use(Router);
 
 const router = new Router({
-  mode: "history",
+  // mode: "history",
   // base: process.env.BASE_URL,
   routes: [
     {
@@ -212,7 +216,7 @@ const router = new Router({
           name: "systemControl",
           component:systemControl,
           children:[
-            //门禁报表
+            //组织结构
             {
               path:'/system/systemControl/',
               name:'organization',
@@ -221,6 +225,7 @@ const router = new Router({
                 active:'0-0'
               }
             },
+            //用户管理
             {
               path:'/system/systemControl/userControl',
               name:'userControl',
@@ -229,6 +234,7 @@ const router = new Router({
                 active:'0-1'
               }
             },
+            //用户黑名单
             {
               path:'/system/systemControl/userBlack',
               name:'userBlack',
@@ -237,12 +243,41 @@ const router = new Router({
                 active:'0-2'
               }
             },
+            //用户编号设置
             {
               path:'/system/systemControl/userNumDesign',
               name:'userNumDesign',
               component:userNumDesign,
               meta:{
                 active:'0-3'
+              }
+            },
+            //权限管理
+            //角色管理
+            {
+              path:'/system/systemControl/roleControl',
+              name:'roleControl',
+              component:roleControl,
+              meta:{
+                active:'1-0'
+              }
+            },
+            //菜单管理
+            {
+              path:'/system/systemControl/menuControl',
+              name:'menuControl',
+              component:menuControl,
+              meta:{
+                active:'1-1'
+              }
+            },
+            //数据字典
+            {
+              path:'/system/systemControl/dataDictionary',
+              name:'dataDictionary',
+              component:dataDictionary,
+              meta:{
+                active:'1-2'
               }
             }
           ]

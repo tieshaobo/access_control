@@ -33,7 +33,11 @@ export default {
     };
   },
   created() {
-   
+    let that = this;
+    document.onkeydown = function() {
+      let key = window.event.keyCode;
+      key == 13 ? that.signinValidate() : "";
+    };
   },
   methods: {  
     signinValidate() {
@@ -45,6 +49,7 @@ export default {
         };
         login(data).then((res)=>{
           if(res.success){
+            sessionStorage.setItem("userName",res.data.userName)
             this.$store.commit("setUserName",{name:res.data.userName})
             this.$router.push('/system');
 
@@ -57,6 +62,7 @@ export default {
     toSignup() {
       this.$router.push("/signup");
     }
+    
   }
 };
 </script>
